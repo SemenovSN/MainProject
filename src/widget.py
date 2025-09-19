@@ -20,5 +20,11 @@ def mask_card_account(input_data: str) -> str:
 
 
 def get_date(input_date: str) -> str:
+    """
+    Принимает на вход строку с датой в формате ISO 8601 (прим. "2024-03-11T02:26:18.671407")
+    Возвращает строку в формате "ДД.ММ.ГГГГ"
+    :param input_date: строка в формате ISO 8601
+    :return: строка в формате ДД.ММ.ГГГГ
+    """
     date_list = input_date[:input_date.index('T')].split('-')[-1::-1]
     return '.'.join(date_list)
