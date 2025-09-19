@@ -1,7 +1,7 @@
 from masks import get_mask_account, get_mask_card_number
 
 
-def mask_card_account(input_data: str) -> str:
+def mask_account_card(input_data: str) -> str:
     """
     Принимает один аргумент — строку, содержащую тип и номер карты или счета вида:
     1. Visa Platinum XXXXXXXXXXXXXXXX
