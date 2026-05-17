@@ -5,3 +5,6 @@ def filter_by_state(dictionary_list, state='EXECUTED'):
             if key == 'state' and value == state:
                 filter_by_state_result.append(dictionary)
     return filter_by_state_result
+
+def sort_by_date(dictionary_list, sort_order = True):
+    return sorted(dictionary_list, key=lambda x: x['date'], reverse=sort_order)
