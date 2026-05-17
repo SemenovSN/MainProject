@@ -1,4 +1,4 @@
-def filter_by_state(dictionary_list, state='EXECUTED'):
+def filter_by_state(dictionary_list: list, state: str ='EXECUTED') -> list:
     """
     Принимает список словарей и опционально значение для ключа state (по умолчанию 'EXECUTED').
     Возвращает новый список словарей, содержащий только те словари, у которых ключ state соответствует указанному
@@ -14,7 +14,7 @@ def filter_by_state(dictionary_list, state='EXECUTED'):
                 filter_by_state_result.append(dictionary)
     return filter_by_state_result
 
-def sort_by_date(dictionary_list, sort_order = True):
+def sort_by_date(dictionary_list: list, sort_order: bool = True) -> list:
     """
     Принимает список словарей и необязательный параметр, задающий порядок сортировки (по умолчанию — убывание).
     Возвращает новый список, отсортированный по дате (date).
