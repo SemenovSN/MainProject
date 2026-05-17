@@ -15,4 +15,11 @@ def filter_by_state(dictionary_list, state='EXECUTED'):
     return filter_by_state_result
 
 def sort_by_date(dictionary_list, sort_order = True):
+    """
+    Принимает список словарей и необязательный параметр, задающий порядок сортировки (по умолчанию — убывание).
+    Возвращает новый список, отсортированный по дате (date).
+    :param dictionary_list: список словарей
+    :param sort_order: порядок сортировки: True - по убыванию (по умолчанию), False - по возрастанию
+    :return: сортированный по дате список словарей
+    """
     return sorted(dictionary_list, key=lambda x: x['date'], reverse=sort_order)
