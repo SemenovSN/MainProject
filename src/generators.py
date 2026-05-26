@@ -2,6 +2,13 @@ from typing import Iterator
 
 
 def filter_by_currency(transactions_list: list, currency_code: str) -> Iterator[dict]:
+    """
+    Функция принимает на вход 2 аргумента: список транзакций и код валюты.
+    Возвращает транзакции с данным типом валют.
+    :param transactions_list: список транзакций типа list
+    :param currency_code: код валюты типа str
+    :return: транзакции с данным типом валюты (итератор типа dict).
+    """
     for transaction in transactions_list:
         condition_check = transaction['operationAmount']['currency']['code']
         if condition_check == currency_code:
