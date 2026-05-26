@@ -43,4 +43,4 @@ def test_card_number_generator():
     assert next(gen_single) == '0000 0000 0000 1234'
     # тест - тестирование генерации при избыточном аргументе
     with pytest.raises(ValueError):
-        assert next(gen_excess) == '123'
+        assert next(gen_excess) == '1 0000 0000 0000 0000'
