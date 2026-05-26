@@ -12,8 +12,8 @@ def transaction_descriptions(transactions_list: list) -> Iterator[str]:
         yield transaction["description"]
 
 def card_number_generator(start: int, stop: int) -> Iterator[str]:
-    for generated_number in range(start, stop):
+    for generated_number in range(start, stop + 1):
         generated_number = str(generated_number)
         template = '0' * (16 - len(generated_number)) + str(generated_number)
-        card_number = f'{template[:4]} {template[4:8]} {template[8:12]} {template[12:]}'
-        yield card_number
+        result = f'{template[:4]} {template[4:8]} {template[8:12]} {template[12:]}'
+        yield result
