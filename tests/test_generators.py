@@ -36,9 +36,11 @@ def test_card_number_generator():
     gen_normal = card_number_generator(1230, 1231)
     gen_single = card_number_generator(1234, 1234)
     gen_excess = card_number_generator(10000000000000000, 10000000000000000)
-    #
+    # тест - тестирование генерации нескольких номеров карт
     assert next(gen_normal) == '0000 0000 0000 1230'
     assert next(gen_normal) == '0000 0000 0000 1231'
-    #
+    # тест - тестирование генерации одного номера карты
     assert next(gen_single) == '0000 0000 0000 1234'
-
+    # тест - тестирование генерации при избыточном аргументе
+    with pytest.raises(ValueError):
+        assert next(gen_excess) == '123'
