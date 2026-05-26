@@ -15,6 +15,12 @@ def filter_by_currency(transactions_list: list, currency_code: str) -> Iterator[
             yield transaction
 
 def transaction_descriptions(transactions_list: list) -> Iterator[str]:
+    """
+    Функция принимает на вход список транзакций.
+    Возвращает описание по каждой транзакции
+    :param transactions_list: список транзакций типа list
+    :return: описание транзакции типа str
+    """
     for transaction in transactions_list:
         yield transaction["description"]
 
