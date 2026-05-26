@@ -25,6 +25,13 @@ def transaction_descriptions(transactions_list: list) -> Iterator[str]:
         yield transaction["description"]
 
 def card_number_generator(start: int, stop: int) -> Iterator[str]:
+    """
+    Функция принимает на вход 2 аргумента: стартовую и конечную позиции для генерации.
+    Возвращает номер карты в формате XXXX XXXX XXXX XXXX.
+    :param start: начальная позиция генерации типа int
+    :param stop: конечная позиция генерации типа int
+    :return: номер карты типа str
+    """
     for generated_number in range(start, stop + 1):
         generated_number = str(generated_number)
         template = '0' * (16 - len(generated_number)) + str(generated_number)
