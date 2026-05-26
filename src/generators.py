@@ -36,4 +36,7 @@ def card_number_generator(start: int, stop: int) -> Iterator[str]:
         generated_number = str(generated_number)
         template = '0' * (16 - len(generated_number)) + str(generated_number)
         result = f'{template[:4]} {template[4:8]} {template[8:12]} {template[12:]}'
-        yield result
+        if len(result) == 19:
+            yield result
+        else:
+            raise ValueError
