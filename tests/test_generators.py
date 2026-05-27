@@ -79,6 +79,7 @@ def test_transaction_descriptions(generators_input_fixture):
     with pytest.raises(StopIteration):
         assert next(gen) == "Перевод организации"
 
+
 @pytest.mark.parametrize("num", range(10000))
 def test_card_number_generator_many(num):
     # тест - тестирование генерации нескольких номеров карт
