@@ -79,16 +79,22 @@ def test_transaction_descriptions(generators_input_fixture):
     with pytest.raises(StopIteration):
         assert next(gen) == "Перевод организации"
 
-
-def test_card_number_generator():
-    gen_normal = card_number_generator(1230, 1231)
-    gen_single = card_number_generator(1234, 1234)
-    gen_excess = card_number_generator(10000000000000000, 10000000000000000)
+@pytest.mark.parametrize("num", range(10000))
+def test_card_number_generator_many(num):
     # тест - тестирование генерации нескольких номеров карт
-    assert next(gen_normal) == "0000 0000 0000 1230"
-    assert next(gen_normal) == "0000 0000 0000 1231"
+    gen_many = card_number_generator(num, num)
+    expected_result = "0000 0000 0000 " + "0" * (4 - len(str(num))) + str(num)
+    assert next(gen_many) == expected_result
+
+
+def test_card_number_generator_single():
+    gen_single = card_number_generator(1234, 1234)
     # тест - тестирование генерации одного номера карты
     assert next(gen_single) == "0000 0000 0000 1234"
+
+
+def test_card_number_generator_excess():
+    gen_excess = card_number_generator(10000000000000000, 10000000000000000)
     # тест - тестирование генерации при избыточном аргументе
     with pytest.raises(ValueError):
         assert next(gen_excess) == "1 0000 0000 0000 0000"
